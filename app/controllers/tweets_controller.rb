@@ -13,6 +13,22 @@ class TweetsController < ApplicationController
       render "toppages/index"
     end
   end
+  
+  def edit
+    @tweet = Tweet.find(params[:id])
+  end
+  
+  def update
+    @tweet = Tweet.find(params[:id])
+    if @tweet.update(tweet_params)
+      flash[:success] = "メッセージを更新しました。"
+      redirect_to root_url
+    else
+      @tweets = current_user.feed_tweets.order("created_at DESC").page(params[:page])
+      flash.now[:danger] = "メッセージの更新に失敗しました。"
+      render "toppages/index"
+    end
+  end
 
   def destroy
     @tweet.destroy

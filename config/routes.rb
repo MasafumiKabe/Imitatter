@@ -13,6 +13,6 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :tweets, only: [:create, :destroy]
+  resources :tweets, only: [:create, :edit, :update, :destroy]
   resources :relationships, only: [:create, :destroy]
 end
