@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 255 }
   has_secure_password
   
+  mount_uploader :image, IconUploader
+  
   has_many :tweets
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow

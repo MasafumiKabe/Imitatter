@@ -59,3 +59,5 @@ group :production do
 end
 
 gem 'carrierwave', '~> 1.0'
+
+gem 'rmagick', '~> 2.16'
