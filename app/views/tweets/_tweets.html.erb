@@ -19,6 +19,7 @@
           <% end %>
         </div>
         <div>
+          <%= render "favorites/like_button", tweet: tweet %>
           <% if current_user == tweet.user %>
             <%= link_to "編集", edit_tweet_path(tweet), class: 'btn btn-primary btn-xs' %>
             <%= link_to "Delete", tweet, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>

@@ -1,0 +1,11 @@
+<% if current_user.liking?(tweet) %>
+  <%= form_for(current_user.favorites.find_by(tweet_id: tweet.id), html: { method: :delete }) do |f| %>
+    <%= hidden_field_tag :tweet_id, tweet.id %>
+    <%= f.submit "Liked", class: "btn btn-warning btn-xs" %>
+  <% end %>
+<% else %>
+  <%= form_for(current_user.favorites.build) do |f| %>
+    <%= hidden_field_tag :tweet_id, tweet.id %>
+    <%= f.submit "Like", class: "btn btn-default btn-xs" %>
+  <% end %>
+<% end %>
