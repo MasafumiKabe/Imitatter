@@ -34,10 +34,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:success] = "ユーザを登録しました。"
+      flash[:success] = "ユーザ情報を更新しました。"
       redirect_to @user
     else
-      flash.now[:danger] = "ユーザの登録に失敗しました。"
+      flash.now[:danger] = "ユーザ情報の更新に失敗しました。"
       render :edit
     end
   end
