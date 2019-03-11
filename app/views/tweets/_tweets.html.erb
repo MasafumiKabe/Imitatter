@@ -18,10 +18,12 @@
             <p><%= image_tag tweet.image.to_s, :size => "500x500" %></p>
           <% end %>
         </div>
-        <div>
+        <div class="favorites">
           <%= render "favorites/like_button", tweet: tweet %>
+        </div>
+        <div class="button">
           <% if current_user == tweet.user %>
-            <%= link_to "編集", edit_tweet_path(tweet), class: 'btn btn-primary btn-xs' %>
+            <%= link_to "編集", edit_tweet_path(tweet), class: 'btn btn-default btn-xs' %>
             <%= link_to "Delete", tweet, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
           <% end %>
         </div>

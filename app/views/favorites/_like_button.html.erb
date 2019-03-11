@@ -1,11 +1,16 @@
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 <% if current_user.liking?(tweet) %>
   <%= form_for(current_user.favorites.find_by(tweet_id: tweet.id), html: { method: :delete }) do |f| %>
     <%= hidden_field_tag :tweet_id, tweet.id %>
-    <%= f.submit "Liked", class: "btn btn-warning btn-xs" %>
+    <%= button_tag type: "submit", class: "btn btn-xs" do %>
+      <i class="fas fa-star my-yellow"></i>
+    <% end %>
   <% end %>
 <% else %>
   <%= form_for(current_user.favorites.build) do |f| %>
     <%= hidden_field_tag :tweet_id, tweet.id %>
-    <%= f.submit "Like", class: "btn btn-default btn-xs" %>
+    <%= button_tag type: "submit", class: "btn btn-xs" do %>
+      <i class="far fa-star"></i>
+    <% end %>
   <% end %>
 <% end %>
